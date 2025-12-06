@@ -5,11 +5,9 @@ import { MODE, PORT } from "./constant/envs.js";
 import renderRoute from "./routes/renderRoute.js";
 
 const app = express();
+const allowedOrigin = process.env.FRONTEND_URL || "http://localhost:3000";
 
-if (MODE !== "production") {
-	app.use(cors({ origin: "http://localhost:5173", credentials: true }));
-}
-
+app.use(cors({ origin: allowedOrigin, credentials: true, methods: ["GET"] }));
 app.use(express.json());
 app.use("/api/render", renderRoute);
 
