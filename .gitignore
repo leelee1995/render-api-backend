@@ -28,3 +28,8 @@ dist-ssr
 
 #env files
 .env
+
+# Miscellaneous
+.github
+Dockerfile
+fly.toml
